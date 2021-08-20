@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:f="http://java.sun.com/jsf/core" xmlns:c="http://java.sun.com/jsp/jstl/core" xmlns:a="http://xmlns.jcp.org/jsf/passthrough">
+
+<h:head>
+    <link rel="stylesheet" href="profile.css"/>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous"/>
+    <title>PROFILE</title>
+</h:head>
+<h:body style="background-color: #F5F4F5">
+    <div class="container">
+        <div class="row" id="tabs">
+            <div class="col-3" id="tab1">
+                <a href="./hub.xhtml">Home</a>
+            </div>
+            <div class="col-3" id="tab2">
+                <a href="./profile.xhtml">Profile</a>
+            </div>
+            <div class="col-3" id="tab3">
+                <a href="./nameToPhone.xhtml">Search User Phone Number</a>
+            </div>
+            <div class="col-3" id="tab4">
+                <a href="./message.xhtml">My Message</a>
+            </div>
+        </div>
+        <ul>
+            <li><a>Hello, #{ProfileManagedBean.user.username}</a></li>
+        </ul>
+
+        <a>Your Houses: </a>
+        <h:panelGroup id="houselist">
+
+            <h:panelGroup rendered="#{not empty ProfileManagedBean.houseList}">
+                <div class="row">
+                    <c:forEach items="#{ProfileManagedBean.houseList}" var="house">
+                        <div class="col-3" id="classroom">
+                            <h:link outcome="classroom" style="text-align: left">
+                                <f:param name="classroomID" value="#{house.houseId} ">
+                                    <div>
+                                        <h4>Location: #{house.areaByAreaId.streetName}</h4>
+                                        <h4>Description from landlord: #{house.description}</h4>
+                                        <h4>Price: #{house.price}</h4>
+                                        <h4>Contact number: #{house.userByUserId.phoneNumber}</h4>
+                                    </div>
+                                </f:param>
+                            </h:link>
+
+                        </div>
+                    </c:forEach>
+                </div>
+            </h:panelGroup >
+
+            <h:panelGroup rendered="#{empty ProfileManagedBean.houseList}">
+                <p id="NoRoom">No available room</p>
+            </h:panelGroup >
+        </h:panelGroup>
+
+
+        <a>Upload new house: </a>
+        <h:form>
+            <div id="formBox">
+                <div id="locationBox">
+                    <h:inputText id="locationId" value="#{ProfileManagedBean.location}" a:placeholder="Location ID" required="true"/>
+                </div>
+                <div id="priceBox">
+                    <h:inputText id="price" value="#{ProfileManagedBean.price}" a:placeholder="Price" required="true"/>
+                </div>
+                <div id="discriptionBox">
+                    <h:inputText id="discription" value="#{ProfileManagedBean.description}" a:placeholder="Discription" required="true"/>
+                </div>
+                <div id="typeBox">
+                    <h:inputText id="type" value="#{ProfileManagedBean.type}" a:placeholder="Type" required="true"/>
+                </div>
+                <div id="buttonBox">
+                    <h:commandButton id="submitButton" value="Upload New House">
+                        <f:ajax execute="@form" listener="#{ProfileManagedBean.Upload}" render="showError1"/>
+                    </h:commandButton>
+                </div>
+
+            </div>
+        </h:form>
+
+        <h:panelGroup id="showError1">
+            <div id="errorBox1">
+                <h:panelGroup id="innerShowError1" rendered="#{ProfileManagedBean.success}">
+                    <p>#{ProfileManagedBean.returnedText}</p>
+                </h:panelGroup>
+            </div>
+        </h:panelGroup>
+
+        <a>Create a new order: </a>
+        <h:form>
+            <div id="formBox2">
+                <div id="houseIDBox">
+                    <h:inputText id="houseId" value="#{ProfileManagedBean.houseId}" a:placeholder="House ID" required="true"/>
+                </div>
+                <div id="startBox">
+                    <h:inputText id="startDate" value="#{ProfileManagedBean.startDate}" a:placeholder="2021-07-15" required="true"/>
+                </div>
+                <div id="endBox">
+                    <h:inputText id="endDate" value="#{ProfileManagedBean.endDate}" a:placeholder="2021-07-20" required="true"/>
+                </div>
+                <div id="buttonBox2">
+                    <h:commandButton id="submitButton2" value="Create new order">
+                        <f:ajax execute="@form" listener="#{ProfileManagedBean.CreateOrder}" render="showError2"/>
+                    </h:commandButton>
+                </div>
+
+            </div>
+        </h:form>
+
+        <h:panelGroup id="showError2">
+            <div id="errorBox2">
+                <h:panelGroup id="innerShowError2" rendered="#{ProfileManagedBean.successOrder}">
+                    <p>#{ProfileManagedBean.returnedTextOrder}</p>
+                </h:panelGroup>
+            </div>
+        </h:panelGroup>
+
+
+        <h:form id="logoutButton">
+            <h:commandButton id="logout" value="Logout" action="#{ProfileManagedBean.logout}"></h:commandButton>
+        </h:form>
+    </div>
+</h:body>
+
+
+</html>
+

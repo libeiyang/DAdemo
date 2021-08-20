@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:f="http://xmlns.jcp.org/jsf/core" xmlns:a="http://xmlns.jcp.org/jsf/passthrough">
+<h:head>
+    <link rel="stylesheet" href="register.css"/>
+    <title>REGISTER</title>
+</h:head>
+<h:body>
+    <h:form>
+        <div id="formBox">
+            <h1>REGISTER</h1>
+            <div id="nameBox">
+                <h:inputText id="username" value="#{RegisterManagedBean.username}" a:placeholder="Name"
+                             required="true"/>
+            </div>
+            <div id="phoneBox">
+                <h:inputText id="phone_number" value="#{RegisterManagedBean.phone_number}" a:placeholder="Phone" required="true"/>
+            </div>
+            <div id="pswBox">
+                <h:inputSecret id="password" value="#{RegisterManagedBean.password}" a:placeholder="Password"
+                               required="true"/>
+            </div>
+
+            <div id="c_pswBox">
+                <h:inputSecret id="confirmedPassword" value="#{RegisterManagedBean.confirmPassword}" a:placeholder="Confirm password"
+                               required="true"/>
+            </div>
+
+            <div id="buttonBox">
+                <h:commandButton id="submitButton" value="Create">
+                    <f:ajax execute="@form" listener="#{RegisterManagedBean.register}" render="showError"/>
+                </h:commandButton>
+            </div>
+
+        </div>
+    </h:form>
+
+    <h:panelGroup id="showError">
+        <div id="errorBox">
+            <h:panelGroup id="innerShowError" rendered="#{not RegisterManagedBean.success}">
+                <p>#{RegisterManagedBean.returnedText}</p>
+            </h:panelGroup>
+        </div>
+    </h:panelGroup>
+</h:body>
+
+</html>
+
+

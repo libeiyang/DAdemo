@@ -1,0 +1,78 @@
+body{
+    /*background-image: url('bg.jpg');*/
+    background-color: #e8fcfa;
+}
+
+.container{
+    background-color: rgba(188, 250, 255, 0.98);
+    margin-top: 0;
+    border-radius: 0.5rem;
+    padding-bottom: 3rem;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+#tabs{
+    margin-top: 2rem;
+}
+
+#tab1{
+    border-bottom: 4px solid rgba(0,0,0,0.3);
+}
+
+#tab1, #tab2, #tab3, #tab4{
+    padding: 10px 0;
+    text-align: center;
+    font-size: 1.3rem;
+}
+
+#text{
+    font-size: 1.3rem;
+    font-weight: normal;
+    margin-left: 1.5rem;
+}
+
+#classroom{
+    transform: translateX(10%);
+    margin: 1.5rem;
+    border-radius: 1rem;
+    background-color: rgba(98, 253, 255, 0.42);
+    box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2), 0 3px 10px 0 rgba(0, 0, 0, 0.19);
+}
+
+#radioButton{
+    margin: 1.5rem;
+}
+
+#radioButton b{
+    font-size: 1.3rem;
+}
+
+#roomlist b{
+    font-size: 1.3rem;
+    padding-left: 7px;
+}
+
+#NoRoom {
+    text-align: center;
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+
+#roomlist label{
+    font-size: 1.2rem;
+    padding-right: 0.5rem;
+}
+
+#info{
+    margin-left: 1.5rem;
+    margin-top: 0.7rem;
+}
+
+#radioButton table tbody tr td{
+    padding: 1rem;
+}
+
+#radioButton table tbody tr td label{
+    padding-left: 0.5rem;
+    font-size: 1.1rem;
+}

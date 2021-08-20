@@ -1,0 +1,107 @@
+#tabs{
+    margin-top: 2rem;
+}
+
+#tab2{
+    border-bottom: 4px solid rgba(0,0,0,0.3);
+}
+
+.container{
+    background-color: rgba(188, 250, 255, 0.98);
+    margin-top: 0;
+    border-radius: 0.5rem;
+    padding-bottom: 3rem;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+#tab1, #tab2, #tab3, #tab4{
+    padding: 10px 0;
+    text-align: center;
+    font-size: 1.3rem;
+}
+
+#reservation, #reservationTO, #reservationTA{
+    transform: translateX(10%);
+    margin: 1.5rem;
+    border-radius: 1rem;
+    background-color: rgba(0,0,0,0.05);
+    box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2), 0 3px 10px 0 rgba(0, 0, 0, 0.19);
+}
+
+
+
+body > div > ul > li > a{
+    font-size: 1.2rem;
+    font-weight: bold;
+    padding-top: 2rem;
+}
+
+body > div > a{
+    font-size: 1.2rem;
+    font-weight: bold;
+    margin-left: 1.5rem;
+}
+
+#favorite{
+    transform: translateX(10%);
+    margin: 1.5rem;
+    border-radius: 1rem;
+    background-color: rgba(0,0,0,0.05);
+    box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2), 0 3px 10px 0 rgba(0, 0, 0, 0.19);
+}
+
+#deleteButton{
+    text-align: center;
+}
+
+#deleteButton input{
+    margin-bottom: 0.9rem;
+    padding: 6px 12px;
+    font-size: 1rem;
+    border-radius: 2rem;
+    background-color: #47A0FF;
+    color: white;
+    border-width: 0;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+#logoutButton{
+    text-align: center ;
+}
+
+#logoutButton input{
+    margin-bottom: 1.5rem;
+    padding: 9px 24px;
+    font-size: 1.3rem;
+    border-radius: 2rem;
+    background-color: #47A0FF;
+    color: white;
+    border-width: 0;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    transform: translateX(-34%);
+}
+
+.time{
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: rgba(0,0,0,0.5);
+    margin-top: 1.5rem;
+    margin-left: 1.5rem;
+}
+
+#innerShowError_y > p, #innerShowError_x > p, #innerShowError > p, #emptyFavoriteError > p{
+    margin-left: 3rem;
+    margin-bottom: 2rem;
+}
+
+#emptyFavoriteError > p{
+    margin-top: 1rem;
+}
+
+#classroom{
+    transform: translateX(10%);
+    margin: 1.5rem;
+    border-radius: 1rem;
+    background-color: rgba(98, 253, 255, 0.42);
+    box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2), 0 3px 10px 0 rgba(0, 0, 0, 0.19);
+}

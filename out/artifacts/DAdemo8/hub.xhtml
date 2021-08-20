@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:f="http://xmlns.jcp.org/jsf/core" xmlns:c="http://java.sun.com/jsp/jstl/core">
+
+<h:head>
+    <link rel="stylesheet" href="hub.css"/>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous"/>
+    <title>HOME</title>
+</h:head>
+<h:body style="background-color: #F5F4F5">
+    <div class="container">
+        <div class="row" id="tabs">
+            <div class="col-3" id="tab1">
+                <a href="./hub.xhtml">Home</a>
+            </div>
+            <div class="col-3" id="tab2">
+                <a href="./profile.xhtml">Profile</a>
+            </div>
+            <div class="col-3" id="tab3">
+                <a href="./nameToPhone.xhtml">Search User Phone Number</a>
+            </div>
+            <div class="col-3" id="tab4">
+                <a href="./message.xhtml">My Message</a>
+            </div>
+        </div>
+        <h:form>
+            <div id="radioButton">
+                <b> Filter by: </b>
+                <h:selectOneRadio name="filter" value="#{HubManagedBean.selected}">
+                    <f:ajax execute="@form" listener="#{HubManagedBean.filterHouses}" render="houselist"/>
+                    <f:selectItem itemValue="All" itemLabel="All"/>
+                    <f:selectItem itemValue="Room" itemLabel="Room"/>
+                    <f:selectItem itemValue="Studio" itemLabel="Studio"/>
+                    <f:selectItem itemValue="Apartment" itemLabel="Apartment"/>
+                </h:selectOneRadio>
+                <h:selectOneRadio name="dateFilter" value="#{HubManagedBean.selectedDate}">
+                    <f:ajax execute="@form" listener="#{HubManagedBean.filterHouses}" render="houselist"/>
+                    <f:selectItem itemValue="This month" itemLabel="this_month"/>
+                    <f:selectItem itemValue="Next month" itemLabel="next_month"/>
+                    <f:selectItem itemValue="The month after next" itemLabel="next_next_month"/>
+                </h:selectOneRadio>
+            </div>
+        </h:form>
+
+<!--        <h:form>-->
+<!--            <div>-->
+<!--                <label for="bday">Enter your in day:</label>-->
+<!--                <h: inputtype="date" id="inDay" name="inDay"/>-->
+<!--            </div>-->
+
+<!--            <div>-->
+<!--                <label for="bday">Enter your out day:</label>-->
+<!--                <h: inputtype="date" id="outDay" name="outDay"/>-->
+<!--            </div>-->
+<!--        </h:form>>-->
+
+
+        <h:panelGroup id="houselist">
+            <div id="text">
+                Available Houses
+            </div>
+            <div id="info">
+                <label> Total: </label>
+                <h:outputLabel value="#{HubManagedBean.total}"/>
+                <label> Room: </label>
+                <h:outputLabel value="#{HubManagedBean.room_count}"/>
+                <label> Studio: </label>
+                <h:outputLabel value="#{HubManagedBean.studio_count}"/>
+                <label> Apartment: </label>
+                <h:outputLabel value="#{HubManagedBean.apartment_count}"/>
+            </div>
+
+            <h:panelGroup rendered="#{not empty HubManagedBean.houseList}">
+                <div class="row">
+                    <c:forEach items="#{HubManagedBean.houseList}" var="house">
+                        <div class="col-3" id="classroom">
+                            <h:link outcome="classroom" style="text-align: left">
+                                <f:param name="classroomID" value="#{house.houseId} ">
+                                    <div>
+                                        <h4>Location: #{house.areaByAreaId.streetName}</h4>
+                                        <h4>Description from landlord: #{house.description}</h4>
+                                        <h4>Type: #{house.type}</h4>
+                                        <h4>Price: #{house.price}</h4>
+                                        <h4>Contact number: #{house.userByUserId.phoneNumber}</h4>
+                                    </div>
+                                </f:param>
+                            </h:link>
+
+                        </div>
+                    </c:forEach>
+                </div>
+            </h:panelGroup >
+
+            <h:panelGroup rendered="#{empty HubManagedBean.houseList}">
+                <p id="NoRoom">No available room</p>
+            </h:panelGroup >
+        </h:panelGroup>
+
+    </div>
+</h:body>
+
+</html>
+
+

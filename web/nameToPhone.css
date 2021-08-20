@@ -1,0 +1,63 @@
+#tabs{
+    margin-top: 2rem;
+}
+
+#tab3{
+    border-bottom: 4px solid rgba(0,0,0,0.3);
+}
+
+.container{
+    background-color: rgba(188, 250, 255, 0.98);
+    margin-top: 0;
+    border-radius: 0.5rem;
+    padding-bottom: 3rem;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+#tab1, #tab2, #tab3, #tab4{
+    padding: 10px 0;
+    text-align: center;
+    font-size: 1.3rem;
+}
+
+#firstForm, #secondForm{
+    margin-top: 2rem;
+    margin-left: 2.5rem;
+    margin-bottom: 2rem;
+}
+
+#firstForm input, #secondForm input{
+    margin-bottom: 1rem;
+}
+
+#fn input, #ln input, #fourInputs input{
+    border-radius: 2rem;
+    border-color: rgba(0,0,0,0.5);
+    padding: 10px 10px;
+    height: 2.5rem;
+}
+
+#fourInputs select{
+    border-radius: 2rem;
+    border-width: 2px;
+    border-color: rgba(0,0,0,0.5);
+    height: 2.5rem;
+}
+
+.but input{
+    margin-bottom: 1.5rem;
+    padding: 4px 12px;
+    width: 198px;
+    font-size: 1.3rem;
+    border-radius: 2rem;
+    background-color: #47A0FF;
+    color: white;
+    border-width: 0;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+#showSearchedPhone, #availability{
+    margin-left: 2.5rem;
+    font-size: 1.2rem;
+    margin-bottom: 1rem;
+}

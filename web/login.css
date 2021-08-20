@@ -1,0 +1,66 @@
+body{
+    margin: 0;
+    padding: 0;
+    background-image: url('rent house.jpg');
+    background-size: 100%;
+    background-repeat: no-repeat;
+}
+
+#formBox{
+    margin: 10rem auto 0;
+    padding: 20px 50px;
+    background-color: rgba(0,0,0,0.7);
+    width: 400px;
+    height: 300px;
+    border-radius: 10px;
+    text-align: center;
+}
+
+#formBox h1{
+    color: rgba(255,255,255,0.95);
+}
+
+#UsernameBox, #pswBox{
+    margin-top: 1rem;
+}
+
+#UsernameBox input, #pswBox input{
+    border: 0;
+    padding: 10px 10px;
+    border-bottom: 1px solid white;
+    background-color: rgba(0,0,0,0);
+    color: rgba(255,255,255,0.95);
+    height: 1.3rem;
+}
+
+#UsernameBox input::placeholder, #pswBox input::placeholder{
+    color: rgba(255,255,255,0.5);
+}
+
+#buttonBox {
+    margin-top: 1.8rem;
+}
+
+#buttonBox input{
+    background-color: rgba(255,255,255,0.95);
+    border-radius: 20px;
+    height: 2rem;
+    width: 6rem;
+    border: 0;
+}
+
+#formBox > p > a{
+    margin-top: 0.5rem;
+    color: rgba(255,255,255,0.8);
+}
+
+#errorBox{
+    margin: auto;
+    text-align: center;
+    color: rgba(255, 0, 0, 0.8);
+}
+#ErrorMessage{
+    margin: auto;
+    text-align: center;
+    color: rgba(255, 0, 0, 0.8);
+}
